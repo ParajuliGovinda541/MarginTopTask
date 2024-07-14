@@ -1,17 +1,34 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('heading')
+<div>
+    dashboard
+</div>
+@endsection
+@section('content')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
+
+<div class="">
+    <div class="grid grid-cols-3 gap-20 my-10 px-10 text-center rounded-md justify-center items-center ">
+        <a href="{{route('admin.index')}}" class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
+            <div class="">
+                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
+                <h2 class="justify-end flex mt-20 -mr-5">{{$users}}</h2>
+            </div>
+        </a>
+        <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
+            <div class="">
+                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
+                <h2 class="justify-end flex mt-20 -mr-5">100</h2>
             </div>
         </div>
+        <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
+            <div class="">
+                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
+                <h2 class="justify-end flex mt-20 -mr-5">Numbers</h2>
+            </div>
+        </div>
+
+
     </div>
-</x-app-layout>
+</div>
+@endsection
