@@ -12,23 +12,54 @@
         <a href="{{route('admin.index')}}" class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
             <div class="">
                 <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">{{$users}}</h2>
+                <h2 class="justify-end flex mt-20 -mr-5">{{$userscount}}</h2>
             </div>
         </a>
         <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
             <div class="">
-                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">100</h2>
+                <h1 class="justify-start flex -mt-10 -ml-5">Tasks</h1>
+                <h2 class="justify-end flex mt-20 -mr-5">{{$taskscount}}</h2>
             </div>
         </div>
         <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
             <div class="">
-                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">Numbers</h2>
+                <h1 class="justify-start flex -mt-10 -ml-5">Clocled Times</h1>
+                <h2 class="justify-end flex mt-20 -mr-5">{{$timescount}}</h2>
             </div>
         </div>
 
 
     </div>
+    <div class="px-5">
+        <table id="myTable" class="text-center border-2 ">
+            <thead class="">
+                <th class="border">S.N</th>
+                <th class="border">Total Online Status</th>
+                <th class="border">Total Task Completed</th>
+                <th class="border">Total Task In Progress </th>
+                <th class="border">Total Task To Do </th>
+            </thead>
+            <tbody>
+                <?php
+                        $sn = 0;
+                        ?>
+                    <tr class="border">
+                        <td class="border">{{ ++$sn }}</td>
+                        <td class="border">{{$onlineCount }}</td>
+                        <td class="border">{{ $taskCompleted }}</td>
+                        <td class="border">{{ $taskProgressCount }}</td>
+                        <td class="border">{{ $todoCount }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="http://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css"></script>
+<script>
+    let table = new DataTable('#myTable');
+</script>
 </div>
 @endsection

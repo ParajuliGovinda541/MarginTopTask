@@ -32,7 +32,7 @@
                     <td>{{ $user->last_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        {{ $user->online_status== 0 ?'Online':'Offline' }}
+                        {{ $user->online_status== 0 ?'Offline':'Online' }}
 
                     </td>
                     <td>

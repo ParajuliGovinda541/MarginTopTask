@@ -15,19 +15,17 @@ class TaskSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = Faker::create();
         //
-$faker = new Faker::create();
         $users = User::all();
         foreach ($users as $user) {
-            Task::factory()->count(rand(1, 5))->create([
+            Task::factory()->count(1)->create([
                 'user_id' => $user->id,
-                'title' => $faker->title,
-                'subtitle' => $faker->subtitle,
-                'short_description' => $faker->short_description,
-                'status' => $faker->status
-
+                'title' => $faker->sentence,
+                'subtitle' => $faker->sentence,
+                'short_description' => $faker->paragraph,
+                'status' => $faker->randomElement(['to-do', 'in-progress', 'completed']),
             ]);
         }
-        @endforeach
     }
 }

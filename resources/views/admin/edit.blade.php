@@ -54,8 +54,8 @@ Add Users
     <div class="mb-4">
         <label for="online_status" class="block text-gray-700 text-sm font-bold mb-2">Online Status</label>
         <select id="online_status" name="online_status" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            <option value="0" @if($user->online_status == 0) selected @endif>Online</option>
-            <option value="1" @if($user->online_status == 1) selected @endif>Offline</option>
+            <option value="0" @if($user->online_status == 0) selected @endif>Ofline</option>
+            <option value="1" @if($user->online_status == 1) selected @endif>Online</option>
         </select>
 
         @error('online_status')
