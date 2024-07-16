@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clocked;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -73,4 +74,15 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.index');
     }
+
+        public function viewprofile($id)
+
+
+        {
+            $user = User::findOrFail($id);
+            $userclock= Clocked::all();
+
+            return view('admin.viewprofile', ['user' => $user]);
+
+        }
 }

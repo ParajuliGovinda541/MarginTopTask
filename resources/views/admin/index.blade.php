@@ -15,6 +15,7 @@
             <th>S.N</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Username </th>
             <th>Email </th>
             <th>Status </th>
             <th>Role </th>
@@ -30,6 +31,11 @@
                     <td>{{ ++$sn }}</td>
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->last_name }}</td>
+                    <td>
+                        <a href="{{ route('admin.viewprofile', ['id' => $user->id]) }}">
+                            {{ substr($user->first_name, 0, 2) }}.{{ substr($user->last_name, 0, 2) }}
+                        </a>
+                    </td>
                     <td>{{ $user->email }}</td>
                     <td>
                         {{ $user->online_status== 0 ?'Offline':'Online' }}
