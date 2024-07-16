@@ -13,7 +13,10 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link href="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.css" rel="stylesheet">
-
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
 
          {{-- data table links --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
@@ -29,6 +32,8 @@
                 <a class="my-1 hover:bg-white hover:text-black text-xl pl-5 text-white block w-full" href="{{route('dashboard')}}">Dashboard</a>
                 <hr class="">
                 <a class="my-1 hover:bg-white hover:text-black text-xl pl-5 text-white block w-full" href="{{route('admin.index')}}">User</a>
+                <hr class="">
+                <a class="my-1 hover:bg-white hover:text-black text-xl pl-5 text-white block w-full" href="{{route('admin.myprofile')}}">My Profile</a>
                 <hr class="">
                 <form action="{{route('logout')}}" class="cursor-pointer" method="POST">
                     @csrf
@@ -50,8 +55,7 @@
 
                     @auth
                     <div class="mr-10">
-                        {{auth()->user()->is_admin==0?'User':'Admin'}} : {{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}
-                        <a href="(admin.profile)"></a>
+                        Welcome, {{auth()->user()->first_name}}
                     </div>
                     @endauth
                 </div>
@@ -62,7 +66,10 @@
             @yield('content')
         </div>
 
-<script src="DataTables/datatables.min.js"></script>
+<script>
+        new WOW().init();
+    </script>
+    <script src="DataTables/datatables.min.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.js"></script>
 
     </body>

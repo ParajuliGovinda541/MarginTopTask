@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Clocked;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
         User::create($data);
 
         // Redirect to the admin index page after successful creation
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.index')->with('success','Created Successfully');
     }
 
     public function edit($id)
@@ -45,13 +46,13 @@ class UserController extends Controller
         return view('admin.edit', compact('user'));
     }
 
-    public function show($id)
+    public function show()
     {
-        $user = User::find($id);
-        return view('admin.viewuser', compact('user'));
+        $user = Auth::user();
+        return view('admin.myprofile', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function updateAdmin(Request $request, $id)
     {
         $users = User::find($id);
         $data = $request->validate([
@@ -65,14 +66,30 @@ class UserController extends Controller
         $data['password'] = bcrypt($data['password']);
 // dd($data);
         $users->update($data);
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.index')->with('success','Updated Successfully');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $users = User::find($id);
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'online_status' => 'required|in:0,1',
+            'is_admin' => 'required|in:0,1',
+        ]);
+        // $data['password'] = bcrypt($data['password']);
+// dd($data);
+        $users->update($data);
+        return redirect()->route('admin.index')->with('success','Updated Successfully');
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.index')->with('success','Deleted Successfully');
     }
 
         public function viewprofile($id)

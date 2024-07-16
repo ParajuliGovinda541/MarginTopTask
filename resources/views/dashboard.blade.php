@@ -7,29 +7,21 @@
 @section('content')
 
 
-<div class="">
-    <div class="grid grid-cols-3 gap-20 my-10 px-10 text-center rounded-md justify-center items-center ">
-        <a href="{{route('admin.index')}}" class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
-            <div class="">
-                <h1 class="justify-start flex -mt-10 -ml-5">Users</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">{{$userscount}}</h2>
-            </div>
-        </a>
-        <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
-            <div class="">
-                <h1 class="justify-start flex -mt-10 -ml-5">Tasks</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">{{$taskscount}}</h2>
-            </div>
-        </div>
-        <div class="bg-green-400 hover:bg-green-600 cursor-pointer transform  h pt-10 px-10 text-white rounded-lg">
-            <div class="">
-                <h1 class="justify-start flex -mt-10 -ml-5">Clocled Times</h1>
-                <h2 class="justify-end flex mt-20 -mr-5">{{$timescount}}</h2>
-            </div>
-        </div>
-
-
+<div class="grid grid-cols-3 gap-20 my-10 px-10">
+    <a href="{{ route('admin.index') }}" class="bg-blue-500 hover:bg-blue-700 cursor-pointer transform h-full py-10 px-8 text-white rounded-lg flex flex-col justify-center items-center">
+        <h1 class="text-lg font-bold mb-4">Total Users</h1>
+        <h2 class="text-3xl font-bold">{{ $userscount }}</h2>
+    </a>
+    <div class="bg-purple-500 hover:bg-purple-700 cursor-pointer transform h-full py-10 px-8 text-white rounded-lg flex flex-col justify-center items-center">
+        <h1 class="text-lg font-bold mb-4">Total Tasks</h1>
+        <h2 class="text-3xl font-bold">{{ $taskscount }}</h2>
     </div>
+    <div class="bg-indigo-500 hover:bg-indigo-700 cursor-pointer transform h-full py-10 px-8 text-white rounded-lg flex flex-col justify-center items-center">
+        <h1 class="text-lg font-bold mb-4">Clock Times</h1>
+        <h2 class="text-3xl font-bold">{{ $timescount }}</h2>
+    </div>
+</div>
+
     <div class="px-5">
         <table id="myTable" class="text-center border-2 ">
             <thead class="">

@@ -13,6 +13,8 @@ Add Users
     </div>
 @endif
 
+@include('layouts.message')
+
 @section('content')
 
 <form action="{{ route('admin.store') }}" method="POST" class="max-w-lg mx-auto p-6 bg-white shadow-md rounded">

@@ -1,8 +1,11 @@
 @extends('layouts.app')
-
 @section('heading')
-Add Users
+  <div>
+    <h1> Edit Your Profile</h1>
+  </div>
 @endsection
+
+
 @include('layouts.message')
 
 @if ($errors->any())
@@ -16,6 +19,8 @@ Add Users
 @endif
 
 @section('content')
+
+{{-- {{$user}} --}}
 
 <form action="{{ route('admin.update',$user->id) }}" method="POST" class="max-w-lg mx-auto p-6 bg-white shadow-md rounded">
     @csrf
@@ -45,13 +50,13 @@ Add Users
         @enderror
     </div>
 
-    {{-- <div class="mb-4">
+    <div class="mb-4">
         <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
         <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
         @error('password')
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
         @enderror
-    </div> --}}
+    </div>
 
     <div class="mb-4">
         <label for="online_status" class="block text-gray-700 text-sm font-bold mb-2">Online Status</label>
@@ -86,3 +91,4 @@ Add Users
 
 
 @endsection
+
