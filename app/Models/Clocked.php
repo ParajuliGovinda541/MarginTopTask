@@ -14,4 +14,10 @@ class Clocked extends Model
     protected $fillable = [
 'user_id','start_datetime','end_datetime'
     ];
+
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -19,7 +19,7 @@ class TaskSeeder extends Seeder
         //
         $users = User::all();
         foreach ($users as $user) {
-            Task::factory()->count(1)->create([
+            Task::factory()->count(rand(1,3))->create([
                 'user_id' => $user->id,
                 'title' => $faker->sentence,
                 'subtitle' => $faker->sentence,

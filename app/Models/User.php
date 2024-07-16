@@ -51,5 +51,29 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
+    public function clocks()
+    {
+        return $this->hasMany(Clocked::class);
+    }
+
+    public function taskCompletedCount()
+    {
+        return $this->tasks()->where('status','completed')->count();
+    }
+
+    public function taskInProgressCount()
+    {
+        return $this->tasks()->where('status','in-progress')->count();
+    }
+
+    public function taskToDoCount()
+
+    {
+        return $this->tasks()->where('status','to-do')->count();
+    }
+
+
+
+
 
 }

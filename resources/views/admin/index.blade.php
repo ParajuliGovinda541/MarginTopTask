@@ -2,7 +2,6 @@
 @section('heading')
   <div>
     <h1>  Our Users</h1>
-
   </div>
 @endsection
 

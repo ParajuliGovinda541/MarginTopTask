@@ -34,22 +34,25 @@
         <table id="myTable" class="text-center border-2 ">
             <thead class="">
                 <th class="border">S.N</th>
+                <th class="border">Name</th>
                 <th class="border">Total Online Status</th>
                 <th class="border">Total Task Completed</th>
                 <th class="border">Total Task In Progress </th>
                 <th class="border">Total Task To Do </th>
             </thead>
             <tbody>
-                <?php
-                        $sn = 0;
-                        ?>
-                    <tr class="border">
-                        <td class="border">{{ ++$sn }}</td>
-                        <td class="border">{{$onlineCount }}</td>
-                        <td class="border">{{ $taskCompleted }}</td>
-                        <td class="border">{{ $taskProgressCount }}</td>
-                        <td class="border">{{ $todoCount }}</td>
-                    </tr>
+             @foreach ($users as $user )
+             <tr class="border">
+                <td class="border">{{$loop->iteration}}</td>
+                <td class="border">{{$user->first_name}}</td>
+                <td class="border">{{$user->online_status == 0 ?'Offline':'Online'}}</td>
+                <td class="border">{{$user->taskCompletedCount()}}</td>
+                <td class="border">{{$user->taskInProgressCount()}}</td>
+                <td class="border">{{$user->taskToDoCount()}}</td>
+
+            </tr>
+             @endforeach
+
             </tbody>
         </table>
     </div>
